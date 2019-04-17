@@ -5,8 +5,17 @@
 # ....
 # e.g. 6th fibonacci number is 8
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the value of the number n, the loop will trigger n times,
+# with a constant number of steps each time.
+# Space complexity: O(1) constant. No matter how big n gets, the same number of constant sized variables are needed.
 def fibonacci(n)
-  raise NotImplementedError
+  num_1 = 1
+  num_2 = 0
+  raise ArgumentError if n == nil || n < 0
+  n.times do |number|
+    temp = num_2
+    num_2 = num_1
+    num_1 += temp
+  end
+  return num_2
 end
